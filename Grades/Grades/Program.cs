@@ -16,6 +16,7 @@ namespace Grades
       stevensGradeBook.AddGrade(95.9f);
       GradeBook bobsGradebok= new GradeBook();
       bobsGradebok.AddGrade(75);
+      bobsGradebok.AddGrade(55);
 
       GradeStatistics stevensStats = stevensGradeBook.ComputeStatistics();
       GradeStatistics bobsStats = bobsGradebok.ComputeStatistics();
