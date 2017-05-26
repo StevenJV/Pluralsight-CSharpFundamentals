@@ -41,7 +41,9 @@ namespace Grades
       {
         total += grade;
       }
-      return total / _grades.Count;
+      if (_grades.Count > 0)
+        return total / _grades.Count;
+      return 0;
     }
   }
 
