@@ -16,9 +16,11 @@ namespace Grades
       stevensGradeBook.AddGrade(95.9f);
       GradeBook bobsGradebok= new GradeBook();
       bobsGradebok.AddGrade(75);
+
+      GradeStatistics stevensStats = stevensGradeBook.ComputeStatistics();
+      GradeStatistics bobsStats = bobsGradebok.ComputeStatistics();
+
       
-      Console.WriteLine("Steven's average grade: " + stevensGradeBook.AverageGrade());
-      Console.WriteLine("Bob's average grade: " + bobsGradebok.AverageGrade());
       Console.ReadKey();
 
     }
