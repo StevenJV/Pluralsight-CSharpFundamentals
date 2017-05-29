@@ -6,16 +6,31 @@ using System.Threading.Tasks;
 
 namespace Grades
 {
-  class GradeStatistics
+  public class GradeStatistics
   {
-    float _average;
-    float _maxgrade;
-    float _mingrade;
+    readonly float _average;
+    readonly float _maxgrade;
+    readonly float _mingrade;
 
-    public GradeStatistics(float average, float mingrade, float maxgrade) {
-      this._average = average;
-      this._maxgrade = maxgrade;
-      this._mingrade = mingrade;
+    public GradeStatistics(float average, float mingrade, float maxgrade)
+    {
+      _average = average;
+      _maxgrade = maxgrade;
+      _mingrade = mingrade;
+    }
+
+    public float Avg()
+    {
+      return _average;
+    }
+
+    public float Min()
+    {
+      return _mingrade;
+    }
+
+    public float Max() {
+      return _maxgrade;
     }
   }
 }
