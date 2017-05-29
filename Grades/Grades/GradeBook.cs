@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Grades
 {
-  class GradeBook
+  public class GradeBook
   {
     readonly List<float> _grades;
     public GradeBook()
@@ -26,12 +26,16 @@ namespace Grades
 
     private float MaximumGrade()
     {
-      return _grades.Max();
+      if (_grades.Count > 0)
+        return _grades.Max();
+      return 0;
     }
 
     private float MinimumGrade()
     {
-      return _grades.Min();
+      if (_grades.Count > 0)
+        return _grades.Min();
+      return 0;
     }
 
     private float AverageGrade()
