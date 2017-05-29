@@ -9,6 +9,7 @@ namespace Grades
   public class GradeBook
   {
     readonly List<float> _grades;
+
     public GradeBook()
     {
       _grades = new List<float>();
@@ -41,15 +42,12 @@ namespace Grades
     private float AverageGrade()
     {
       float total = 0;
-      foreach (var grade in _grades)
-      {
+      foreach (var grade in _grades) {
         total += grade;
       }
       if (_grades.Count > 0)
-        return total / _grades.Count;
+        return total/_grades.Count;
       return 0;
     }
   }
-
-
 }

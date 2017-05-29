@@ -14,16 +14,15 @@ namespace Grades
       GradeBook stevensGradeBook = new GradeBook();
       stevensGradeBook.AddGrade(91);
       stevensGradeBook.AddGrade(95.9f);
-      GradeBook bobsGradebok= new GradeBook();
+      GradeBook bobsGradebok = new GradeBook();
       bobsGradebok.AddGrade(75);
       bobsGradebok.AddGrade(55);
 
       GradeStatistics stevensStats = stevensGradeBook.ComputeStatistics();
       GradeStatistics bobsStats = bobsGradebok.ComputeStatistics();
 
-      
-      Console.ReadKey();
 
+      Console.ReadKey();
     }
   }
 }

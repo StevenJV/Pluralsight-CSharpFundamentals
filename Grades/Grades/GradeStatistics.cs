@@ -19,18 +19,10 @@ namespace Grades
       _mingrade = mingrade;
     }
 
-    public float Avg()
-    {
-      return _average;
-    }
+    public float Avg() { return _average; }
 
-    public float Min()
-    {
-      return _mingrade;
-    }
+    public float Min() { return _mingrade; }
 
-    public float Max() {
-      return _maxgrade;
-    }
+    public float Max() { return _maxgrade; }
   }
 }
