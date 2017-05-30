@@ -9,6 +9,7 @@ namespace Grades
   public class GradeBook
   {
     readonly List<float> _grades;
+    public string Name;
 
     public GradeBook()
     {
