@@ -21,7 +21,10 @@ namespace Grades
       GradeStatistics stevensStats = stevensGradeBook.ComputeStatistics();
       GradeStatistics bobsStats = bobsGradebok.ComputeStatistics();
 
-
+      Console.WriteLine("Steven's grade stats:");
+      Console.WriteLine($" min: {stevensStats.Min()}, max: {stevensStats.Max()}, avg: {stevensStats.Avg()}");
+      Console.WriteLine("Bob's grade stats:");
+      Console.WriteLine($" min: {bobsStats.Min()}, max: {bobsStats.Max()}, avg: {bobsStats.Avg()}");
       Console.ReadKey();
     }
   }
