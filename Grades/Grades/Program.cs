@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
-using System.Speech.Synthesis;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,9 +11,6 @@ namespace Grades
   {
     static void Main(string[] args)
     {
-      SpeechSynthesizer synth = new SpeechSynthesizer();
-      synth.Speak("Hello! This is the grade book program.");
-
       GradeBook stevensGradeBook = new GradeBook();
       stevensGradeBook.AddGrade(91);
       stevensGradeBook.AddGrade(95.9f);
