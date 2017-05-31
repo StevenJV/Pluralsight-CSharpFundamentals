@@ -10,9 +10,7 @@ namespace Grades
   {
     readonly List<float> _grades;
 
-    //fields are private
     private string _name;
-    //properties have accessors
     public string Name
     {
       get { return _name; }
@@ -33,7 +31,7 @@ namespace Grades
     public GradeBook(string name)
     {
       _grades = new List<float>();
-      Name = name;
+      _name = name;
     }
 
     public void AddGrade(float grade)
