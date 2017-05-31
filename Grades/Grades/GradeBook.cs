@@ -9,11 +9,31 @@ namespace Grades
   public class GradeBook
   {
     readonly List<float> _grades;
-    public string Name;
+
+    //fields are private
+    private string _name;
+    //properties have accessors
+    public string Name
+    {
+      get { return _name; }
+      set
+      {
+        if (!string.IsNullOrEmpty(value))
+        {
+          _name = value;
+        }
+      }
+    }
 
     public GradeBook()
     {
       _grades = new List<float>();
+    }
+
+    public GradeBook(string name)
+    {
+      _grades = new List<float>();
+      Name = name;
     }
 
     public void AddGrade(float grade)

@@ -11,22 +11,23 @@ namespace Grades
   {
     static void Main(string[] args)
     {
-      GradeBook stevensGradeBook = new GradeBook();
+      GradeBook stevensGradeBook = new GradeBook("Steven");
       stevensGradeBook.AddGrade(91);
       stevensGradeBook.AddGrade(95.9f);
       GradeBook bobsGradebok = new GradeBook();
+      bobsGradebok.Name = "Bob";
       bobsGradebok.AddGrade(75);
       bobsGradebok.AddGrade(55);
 
       GradeStatistics stevensStats = stevensGradeBook.ComputeStatistics();
       GradeStatistics bobsStats = bobsGradebok.ComputeStatistics();
 
-      Console.WriteLine("\nSteven's grade stats:");
+      Console.WriteLine($"\n{stevensGradeBook.Name}'s grade stats:");
       WriteResult("minimum", (int)stevensStats.Min());
       WriteResult("maximum", (int)stevensStats.Max());
       WriteResult("average", stevensStats.Avg());
 
-      Console.WriteLine("\nBob's grade stats:");
+      Console.WriteLine($"\n{bobsGradebok.Name}'s grade stats:");
       WriteResult("minimum", (int)bobsStats.Min());
       WriteResult("maximum", (int)bobsStats.Max());
       WriteResult("average", bobsStats.Avg());
