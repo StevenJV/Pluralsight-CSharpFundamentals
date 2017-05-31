@@ -21,10 +21,24 @@ namespace Grades
       GradeStatistics stevensStats = stevensGradeBook.ComputeStatistics();
       GradeStatistics bobsStats = bobsGradebok.ComputeStatistics();
 
-      Console.WriteLine("Steven's grade stats:");
-      Console.WriteLine($" min: {stevensStats.Min()}, max: {stevensStats.Max()}, avg: {stevensStats.Avg()}");
-      Console.WriteLine("Bob's grade stats:");
-      Console.WriteLine($" min: {bobsStats.Min()}, max: {bobsStats.Max()}, avg: {bobsStats.Avg()}");
+      Console.WriteLine("\nSteven's grade stats:");
+      WriteResult("minimum", (int)stevensStats.Min());
+      WriteResult("maximum", (int)stevensStats.Max());
+      WriteResult("average", stevensStats.Avg());
+
+      Console.WriteLine("\nBob's grade stats:");
+      WriteResult("minimum", (int)bobsStats.Min());
+      WriteResult("maximum", (int)bobsStats.Max());
+      WriteResult("average", bobsStats.Avg());
+    }
+
+    static void WriteResult(string description, float result)
+    {
+      Console.WriteLine($"{description}: {result:F2}");
+    }
+    static void WriteResult(string description, int result)
+    {
+      Console.WriteLine($"{description}: {result}");
     }
   }
 }
