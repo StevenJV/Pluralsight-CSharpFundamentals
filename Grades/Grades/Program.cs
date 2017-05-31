@@ -14,20 +14,20 @@ namespace Grades
       GradeBook stevensGradeBook = new GradeBook("Steven");
       stevensGradeBook.AddGrade(91);
       stevensGradeBook.AddGrade(95.9f);
-      GradeBook bobsGradebok = new GradeBook();
-      bobsGradebok.Name = "Bob";
-      bobsGradebok.AddGrade(75);
-      bobsGradebok.AddGrade(55);
+      GradeBook bobsGradebook = new GradeBook();
+      bobsGradebook.Name = "Bob";
+      bobsGradebook.AddGrade(75);
+      bobsGradebook.AddGrade(55);
 
       GradeStatistics stevensStats = stevensGradeBook.ComputeStatistics();
-      GradeStatistics bobsStats = bobsGradebok.ComputeStatistics();
+      GradeStatistics bobsStats = bobsGradebook.ComputeStatistics();
 
       Console.WriteLine($"\n{stevensGradeBook.Name}'s grade stats:");
       WriteResult("minimum", (int)stevensStats.Min());
       WriteResult("maximum", (int)stevensStats.Max());
       WriteResult("average", stevensStats.Avg());
 
-      Console.WriteLine($"\n{bobsGradebok.Name}'s grade stats:");
+      Console.WriteLine($"\n{bobsGradebook.Name}'s grade stats:");
       WriteResult("minimum", (int)bobsStats.Min());
       WriteResult("maximum", (int)bobsStats.Max());
       WriteResult("average", bobsStats.Avg());
