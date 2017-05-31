@@ -15,6 +15,7 @@ namespace Grades
       stevensGradeBook.AddGrade(91);
       stevensGradeBook.AddGrade(95.9f);
       GradeBook bobsGradebook = new GradeBook();
+      bobsGradebook.NameChanged = new NameChangedDeligate(OnNameChanged);
       bobsGradebook.Name = "Bob";
       bobsGradebook.AddGrade(75);
       bobsGradebook.AddGrade(55);
@@ -31,6 +32,11 @@ namespace Grades
       WriteResult("minimum", (int)bobsStats.Min());
       WriteResult("maximum", (int)bobsStats.Max());
       WriteResult("average", bobsStats.Avg());
+    }
+
+    private static void OnNameChanged(string existingName, string newName)
+    {
+      Console.WriteLine($"grade book chaning name from {existingName} to {newName}");
     }
 
     static void WriteResult(string description, float result)
