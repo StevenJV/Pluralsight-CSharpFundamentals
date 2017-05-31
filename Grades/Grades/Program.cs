@@ -16,7 +16,6 @@ namespace Grades
       stevensGradeBook.AddGrade(95.9f);
       GradeBook bobsGradebook = new GradeBook();
       bobsGradebook.NameChanged += OnNameChanged;
-      bobsGradebook.NameChanged += OnNameChanged2;
       bobsGradebook.Name = "Bob";
       bobsGradebook.AddGrade(75);
       bobsGradebook.AddGrade(55);
@@ -35,13 +34,9 @@ namespace Grades
       WriteResult("average", bobsStats.Avg());
     }
 
-    private static void OnNameChanged(string existingName, string newName)
+    private static void OnNameChanged(object sender, NameChangedEventArgs args)
     {
-      Console.WriteLine($"grade book chaning name from {existingName} to {newName}");
-    }
-    private static void OnNameChanged2(string existingName, string newName)
-    {
-      Console.WriteLine($"***");
+      Console.WriteLine($"grade book changing name from {args.ExsitingName} to {args.NewName}");
     }
 
     static void WriteResult(string description, float result)

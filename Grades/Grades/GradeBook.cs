@@ -19,8 +19,11 @@ namespace Grades
         if (!string.IsNullOrEmpty(value))
         {
           if (_name != value) {
-            // name is changing, others might need to know about it.
-            NameChanged(_name, value);
+            NameChangedEventArgs args = new NameChangedEventArgs {
+              ExsitingName = _name,
+              NewName = value
+            };
+            NameChanged(this, args );
           }
           _name = value;
         }
