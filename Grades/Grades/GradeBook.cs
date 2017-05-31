@@ -27,7 +27,7 @@ namespace Grades
       }
     }
 
-    public NameChangedDeligate NameChanged;
+    public event NameChangedDeligate NameChanged;
 
 
     public GradeBook()
