@@ -16,6 +16,7 @@ namespace Grades
       stevensGradeBook.AddGrade(95.9f);
       GradeBook bobsGradebook = new GradeBook();
       bobsGradebook.NameChanged = new NameChangedDeligate(OnNameChanged);
+      bobsGradebook.NameChanged += new NameChangedDeligate(OnNameChanged2);
       bobsGradebook.Name = "Bob";
       bobsGradebook.AddGrade(75);
       bobsGradebook.AddGrade(55);
@@ -37,6 +38,10 @@ namespace Grades
     private static void OnNameChanged(string existingName, string newName)
     {
       Console.WriteLine($"grade book chaning name from {existingName} to {newName}");
+    }
+    private static void OnNameChanged2(string existingName, string newName)
+    {
+      Console.WriteLine($"***");
     }
 
     static void WriteResult(string description, float result)
