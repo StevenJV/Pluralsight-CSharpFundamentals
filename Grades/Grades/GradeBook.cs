@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,6 +81,13 @@ namespace Grades
       if (_grades.Count > 0)
         return total / _grades.Count;
       return 0;
+    }
+
+    public void WriteGrades(TextWriter desination)
+    {
+      for (int i = 0; i < _grades.Count; i++) {
+        desination.WriteLine(_grades[i]);
+      }
     }
   }
 }
