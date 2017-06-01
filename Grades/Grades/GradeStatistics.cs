@@ -19,6 +19,33 @@ namespace Grades
       _mingrade = mingrade;
     }
 
+    public string LetterGrade
+    {
+      get
+      {
+        string result;
+        if (Avg() > 90)
+        {
+          result = "A";
+        }
+        else if (Avg() >= 80)
+        {
+          result = "B";
+        }
+        else if (Avg() >= 70)
+        {
+          result = "C";
+        }
+        else if (Avg() >= 60)
+        {
+          result = "D";
+        }
+        else result = "F";
+        return result;
+      }
+    }
+
+
     public float Avg() { return _average; }
 
     public float Min() { return _mingrade; }

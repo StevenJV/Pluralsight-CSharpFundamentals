@@ -39,5 +39,46 @@ namespace Grades.MSTest
       GradeStatistics stats = gradeBook.ComputeStatistics();
       Assert.AreEqual(85.16, stats.Avg(), 0.01);
     }
+
+    [TestMethod]
+    public void AssignCorrectLetterGradeA()
+    {
+      GradeBook gradeBook = new GradeBook();
+      gradeBook.AddGrade(91);
+      GradeStatistics stats = gradeBook.ComputeStatistics();
+      Assert.AreEqual("A", stats.LetterGrade);
+    }
+    [TestMethod]
+    public void AssignCorrectLetterGradeB()
+    {
+      GradeBook gradeBook = new GradeBook();
+      gradeBook.AddGrade(85);
+      GradeStatistics stats = gradeBook.ComputeStatistics();
+      Assert.AreEqual("B", stats.LetterGrade);
+    }
+    [TestMethod]
+    public void AssignCorrectLetterGradeC()
+    {
+      GradeBook gradeBook = new GradeBook();
+      gradeBook.AddGrade(76);
+      GradeStatistics stats = gradeBook.ComputeStatistics();
+      Assert.AreEqual("C", stats.LetterGrade);
+    }
+    [TestMethod]
+    public void AssignCorrectLetterGradeD()
+    {
+      GradeBook gradeBook = new GradeBook();
+      gradeBook.AddGrade(60);
+      GradeStatistics stats = gradeBook.ComputeStatistics();
+      Assert.AreEqual("D", stats.LetterGrade);
+    }
+    [TestMethod]
+    public void AssignCorrectLetterGradeF()
+    {
+      GradeBook gradeBook = new GradeBook();
+      gradeBook.AddGrade(59);
+      GradeStatistics stats = gradeBook.ComputeStatistics();
+      Assert.AreEqual("F", stats.LetterGrade);
+    }
   }
 }
