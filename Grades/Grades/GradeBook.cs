@@ -17,17 +17,22 @@ namespace Grades
       get { return _name; }
       set
       {
-        if (!string.IsNullOrEmpty(value))
+        if (string.IsNullOrEmpty(value))
         {
-          if (_name != value) {
-            NameChangedEventArgs args = new NameChangedEventArgs {
-              ExsitingName = _name,
-              NewName = value
-            };
-            NameChanged?.Invoke(this, args ); // same as `if (NameChanged != null) NamedChanged(this, args)` 
-          }
-          _name = value;
+          throw new ArgumentNullException($"Name cannot be null or empty");
         }
+
+        if (_name != value)
+        {
+          NameChangedEventArgs args = new NameChangedEventArgs
+          {
+            ExsitingName = _name,
+            NewName = value
+          };
+          NameChanged?.Invoke(this, args); // same as `if (NameChanged != null) NamedChanged(this, args)` 
+        }
+        _name = value;
+
       }
     }
 
@@ -85,7 +90,8 @@ namespace Grades
 
     public void WriteGrades(TextWriter desination)
     {
-      for (int i = 0; i < _grades.Count; i++) {
+      for (int i = 0; i < _grades.Count; i++)
+      {
         desination.WriteLine(_grades[i]);
       }
     }

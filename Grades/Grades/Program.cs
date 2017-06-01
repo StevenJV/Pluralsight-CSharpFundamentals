@@ -36,7 +36,13 @@ namespace Grades
     {
       GradeBook bobsGradebook = new GradeBook();
       bobsGradebook.NameChanged += OnNameChanged;
-      bobsGradebook.Name = "Bob";
+      try {
+        Console.Write("Enter a name for Bob's gradebook: ");
+        bobsGradebook.Name = Console.ReadLine();
+      }
+      catch (ArgumentException ex) {
+        Console.WriteLine($"oops! {ex.Message}");
+      }
       bobsGradebook.AddGrade(75);
       bobsGradebook.AddGrade(76);
       bobsGradebook.AddGrade(60);
