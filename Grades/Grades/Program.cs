@@ -27,13 +27,13 @@ namespace Grades
       WriteResult("minimum", (int)stevensStats.Min());
       WriteResult("maximum", (int)stevensStats.Max());
       WriteResult("average", stevensStats.Avg());
-      WriteResult("grade", stevensStats.LetterGrade);
+      WriteResult("grade", stevensStats.Description);
 
       Console.WriteLine($"\n{bobsGradebook.Name}'s grade stats:");
       WriteResult("minimum", (int)bobsStats.Min());
       WriteResult("maximum", (int)bobsStats.Max());
       WriteResult("average", bobsStats.Avg());
-      WriteResult("grade", bobsStats.LetterGrade);
+      WriteResult("grade", bobsStats.Description);
     }
 
     private static void OnNameChanged(object sender, NameChangedEventArgs args)

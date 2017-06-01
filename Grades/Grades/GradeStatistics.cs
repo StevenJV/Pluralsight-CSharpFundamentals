@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,6 +42,31 @@ namespace Grades
           result = "D";
         }
         else result = "F";
+        return result;
+      }
+    }
+
+    public string Description
+    {
+      get {
+        string result;
+        switch (LetterGrade) {
+          case "A":
+            result = "Excellent";
+            break;
+          case "B":
+            result = "Good";
+            break;
+          case "C":
+            result = "Average";
+            break;
+          case "D":
+            result = "Below Average";
+            break;
+          default:
+            result = "Failing";
+            break;
+        }
         return result;
       }
     }
