@@ -23,7 +23,7 @@ namespace Grades
               ExsitingName = _name,
               NewName = value
             };
-            NameChanged(this, args );
+            NameChanged?.Invoke(this, args ); // same as `if (NameChanged != null) NamedChanged(this, args)` 
           }
           _name = value;
         }
