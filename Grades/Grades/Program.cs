@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -11,17 +12,27 @@ namespace Grades
   {
     static void Main(string[] args)
     {
-      GradeTracker stevensGradebook = new GradeBook("Steven");
+      IGradeTracker stevensGradebook = CreateGradeBook("Steven");
       AddGrades(stevensGradebook);
 
-      GradeTracker bobsGradebook = new ThrowAwayGradeBook("Bob");
+      IGradeTracker bobsGradebook = CreateGradeBook("Bob");
       AddGrades(bobsGradebook);
 
       WriteResults(stevensGradebook);
       WriteResults(bobsGradebook);
     }
 
-    private static void AddGrades(GradeTracker book)
+    private static IGradeTracker CreateGradeBook(string name)
+    {
+      if (name.ToUpper() == "BOB")
+        return new ThrowAwayGradeBook(name);
+      else
+        return new GradeBook(name);
+    }
+
+
+
+    private static void AddGrades(IGradeTracker book)
     {
       book.AddGrade(75);
       book.AddGrade(76);
@@ -36,7 +47,7 @@ namespace Grades
       Console.WriteLine($"grade book changing name from {args.ExsitingName} to {args.NewName}");
     }
 
-    private static void WriteResults(GradeTracker book)
+    private static void WriteResults(IGradeTracker book)
     {
       Console.WriteLine($"\n{book.Name}'s grade stats:");
       book.WriteGrades(Console.Out);
@@ -45,6 +56,14 @@ namespace Grades
       WriteResult("maximum", (int)stats.Max());
       WriteResult("average", stats.Avg());
       WriteResult("grade", stats.Description);
+    }
+
+    private static void SaveGrades(IGradeTracker book)
+    {
+      using (StreamWriter outputFile = File.CreateText("grades.txt"))
+      {
+        book.WriteGrades(outputFile);
+      }
     }
 
     static void WriteResult(string description, float result)
@@ -61,4 +80,6 @@ namespace Grades
     }
 
   }
+
+
 }
