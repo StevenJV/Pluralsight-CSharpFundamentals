@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace Grades
 {
-  internal interface IGradeTracker
+  internal interface IGradeTracker : IEnumerable
   {
     void AddGrade(float grade);
     GradeStatistics ComputeStatistics();
     void WriteGrades(TextWriter desination);
     string Name { get; set; }
+    IEnumerator GetEnumerator();
   }
 }

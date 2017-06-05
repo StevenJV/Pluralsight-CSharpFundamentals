@@ -49,8 +49,11 @@ namespace Grades
 
     private static void WriteResults(IGradeTracker book)
     {
-      Console.WriteLine($"\n{book.Name}'s grade stats:");
-      book.WriteGrades(Console.Out);
+      Console.WriteLine($"\n{book.Name}'s Grade Book");
+      Console.WriteLine($"grades:");
+      foreach (float grade in book) {
+        Console.WriteLine(grade);
+      }
       GradeStatistics stats = book.ComputeStatistics();
       WriteResult("minimum", (int)stats.Min());
       WriteResult("maximum", (int)stats.Max());

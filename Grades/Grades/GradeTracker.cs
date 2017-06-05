@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -40,5 +41,6 @@ namespace Grades
 
     public event NameChangedDeligate NameChanged;
 
+    public abstract IEnumerator GetEnumerator();
   }
 }
