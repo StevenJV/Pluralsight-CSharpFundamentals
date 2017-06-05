@@ -11,17 +11,17 @@ namespace Grades
   {
     static void Main(string[] args)
     {
-      GradeBook stevensGradebook = new GradeBook("Steven");
+      GradeTracker stevensGradebook = new GradeBook("Steven");
       AddGrades(stevensGradebook);
 
-      GradeBook bobsGradebook = new ThrowAwayGradeBook("Bob");
+      GradeTracker bobsGradebook = new ThrowAwayGradeBook("Bob");
       AddGrades(bobsGradebook);
 
       WriteResults(stevensGradebook);
       WriteResults(bobsGradebook);
     }
 
-    private static void AddGrades(GradeBook book)
+    private static void AddGrades(GradeTracker book)
     {
       book.AddGrade(75);
       book.AddGrade(76);
@@ -36,7 +36,7 @@ namespace Grades
       Console.WriteLine($"grade book changing name from {args.ExsitingName} to {args.NewName}");
     }
 
-    private static void WriteResults(GradeBook book)
+    private static void WriteResults(GradeTracker book)
     {
       Console.WriteLine($"\n{book.Name}'s grade stats:");
       book.WriteGrades(Console.Out);
