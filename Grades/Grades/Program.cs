@@ -11,57 +11,40 @@ namespace Grades
   {
     static void Main(string[] args)
     {
-      var stevensGradeBook = CreateStevensGradeBook();
-      var bobsGradebook = CreateBobsGradebook();
+      GradeBook stevensGradebook = new GradeBook("Steven");
+      AddGrades(stevensGradebook);
 
-      GradeStatistics stevensStats = stevensGradeBook.ComputeStatistics();
-      GradeStatistics bobsStats = bobsGradebook.ComputeStatistics();
+      GradeBook bobsGradebook = new ThrowAwayGradeBook("Bob");
+      AddGrades(bobsGradebook);
 
-      Console.WriteLine($"\n{stevensGradeBook.Name}'s grades:");
-      stevensGradeBook.WriteGrades(Console.Out);
-      WriteResult("minimum", (int)stevensStats.Min());
-      WriteResult("maximum", (int)stevensStats.Max());
-      WriteResult("average", stevensStats.Avg());
-      WriteResult("grade", stevensStats.Description);
-
-      Console.WriteLine($"\n{bobsGradebook.Name}'s grades:");
-      bobsGradebook.WriteGrades(Console.Out);
-      WriteResult("minimum", (int)bobsStats.Min());
-      WriteResult("maximum", (int)bobsStats.Max());
-      WriteResult("average", bobsStats.Avg());
-      WriteResult("grade", bobsStats.Description);
+      WriteResults(stevensGradebook);
+      WriteResults(bobsGradebook);
     }
 
-    private static GradeBook CreateBobsGradebook()
+    private static void AddGrades(GradeBook book)
     {
-      GradeBook bobsGradebook = new GradeBook();
-      bobsGradebook.NameChanged += OnNameChanged;
-      try {
-        Console.Write("Enter a name for Bob's gradebook: ");
-        bobsGradebook.Name = Console.ReadLine();
-      }
-      catch (ArgumentException ex) {
-        Console.WriteLine($"oops! {ex.Message}");
-      }
-      bobsGradebook.AddGrade(75);
-      bobsGradebook.AddGrade(76);
-      bobsGradebook.AddGrade(60);
-      bobsGradebook.AddGrade(78);
-      bobsGradebook.AddGrade(55);
-      return bobsGradebook;
+      book.AddGrade(75);
+      book.AddGrade(76);
+      book.AddGrade(55);
+      book.AddGrade(60);
+      book.AddGrade(78);
     }
 
-    private static GradeBook CreateStevensGradeBook()
-    {
-      GradeBook stevensGradeBook = new GradeBook("Steven");
-      stevensGradeBook.AddGrade(91);
-      stevensGradeBook.AddGrade(95.9f);
-      return stevensGradeBook;
-    }
 
     private static void OnNameChanged(object sender, NameChangedEventArgs args)
     {
       Console.WriteLine($"grade book changing name from {args.ExsitingName} to {args.NewName}");
+    }
+
+    private static void WriteResults(GradeBook book)
+    {
+      Console.WriteLine($"\n{book.Name}'s grade stats:");
+      book.WriteGrades(Console.Out);
+      GradeStatistics stats = book.ComputeStatistics();
+      WriteResult("minimum", (int)stats.Min());
+      WriteResult("maximum", (int)stats.Max());
+      WriteResult("average", stats.Avg());
+      WriteResult("grade", stats.Description);
     }
 
     static void WriteResult(string description, float result)

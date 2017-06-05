@@ -9,7 +9,7 @@ namespace Grades
 {
   public class GradeBook
   {
-    readonly List<float> _grades;
+    protected readonly List<float> _grades;
 
     private string _name;
     public string Name
@@ -57,7 +57,7 @@ namespace Grades
       _grades.Add(grade);
     }
 
-    public GradeStatistics ComputeStatistics()
+    public virtual GradeStatistics ComputeStatistics()
     {
       return new GradeStatistics(AverageGrade(), MinimumGrade(), MaximumGrade());
     }
@@ -69,7 +69,7 @@ namespace Grades
       return 0;
     }
 
-    private float MinimumGrade()
+    protected float MinimumGrade()
     {
       if (_grades.Count > 0)
         return _grades.Min();
